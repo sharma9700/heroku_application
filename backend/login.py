@@ -6,7 +6,7 @@ import bcrypt
 login_blueprint = Blueprint('login', __name__)
 
 
-USER_PROFILE_FILE = '/flask_deployment/database/userinfo.json'
+USER_PROFILE_FILE = 'database/userinfo.json'
 def load_user_profiles():
     if os.path.exists(USER_PROFILE_FILE):
         with open(USER_PROFILE_FILE, 'r') as f:
