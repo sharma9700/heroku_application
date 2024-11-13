@@ -1,11 +1,17 @@
-import flask
 from flask import Flask
+from flask_cors import CORS
+from backend.register import register_blueprint
+from backend.login import login_blueprint
 
-app = Flask("MyFirstApp")
+# Create Flask app
+app = Flask(__name__)
 
-@app.route('/', methods=['GET'])
-def welcome():
-    return "<h1>Hello world</h1>"
+# Configure CORS
+CORS(app, supports_credentials=True)
 
-if __name__ == "__main__":
-    app.run()
+# Register blueprints
+app.register_blueprint(register_blueprint, url_prefix='/auth')
+app.register_blueprint(login_blueprint, url_prefix='/auth')
+
+if __name__ == '__main__':
+    app.run(debug=True)
