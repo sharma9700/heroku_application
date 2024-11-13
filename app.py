@@ -1,11 +1,15 @@
 # app.py
 from flask import Flask
 from flask_cors import CORS
-from backend.register import register_blueprint  # Importing the correct blueprint
+from backend.register import register_blueprint
 from backend.login import login_blueprint
 
 # Create Flask app
 app = Flask(__name__)
+
+@app.route("/home")
+def home():
+	return "<h1>Hello World</h1>"
 
 # Configure CORS
 CORS(app, supports_credentials=True)
