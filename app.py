@@ -1,6 +1,7 @@
+# app.py
 from flask import Flask
 from flask_cors import CORS
-from backend.register import register_blueprint
+from backend.register import register_blueprint  # Importing the correct blueprint
 from backend.login import login_blueprint
 
 # Create Flask app
