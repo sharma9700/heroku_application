@@ -5,7 +5,7 @@ import bcrypt
 
 register_blueprint = Blueprint('register', __name__)
 
-USER_PROFILE_FILE = '/heroku_application/flask_deployment/database/userinfo.json'
+USER_PROFILE_FILE = '/flask_deployment/database/userinfo.json'
 
 # Load existing user profiles from JSON file
 def load_user_profiles():
