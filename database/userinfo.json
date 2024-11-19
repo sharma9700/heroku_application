@@ -1,4 +1,13 @@
 {
     "users": [
-           ]
+        {
+            "username": "Sharma",
+            "email": "vemusaisharma@gmail.com",
+            "password": "123456789",
+            "full_name": "Vemu L S C Sharma",
+            "phone_number": "9700201460",
+            "dob": "15-11-1998",
+            "is_active": true
+        }
+    ]
 }

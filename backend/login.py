@@ -5,48 +5,42 @@ import bcrypt
 
 login_blueprint = Blueprint('login', __name__)
 
-
-USER_PROFILE_FILE = 'database/userinfo.json'
-def load_user_profiles():
-    if os.path.exists(USER_PROFILE_FILE):
-        with open(USER_PROFILE_FILE, 'r') as f:
-            print(f)
-            return json.load(f)
-    return {"users": []}
-    
+USER_PROFILE_FILE = '/home/ec2-user/devops_session/python_cicd/heroku_application/flask_deployment/database/userinfo.json'
 
 @login_blueprint.route('/login', methods=['POST'])
 def login():
+    def load_user_profiles():
+        """Load user profiles from the JSON file."""
+        if os.path.exists(USER_PROFILE_FILE):
+            try:
+                with open(USER_PROFILE_FILE, 'r') as f:
+                    return json.load(f)
+            except json.JSONDecodeError as e:
+                print(f"Error decoding JSON: {e}")
+                return {"users": []}
+        else:
+            print(f"File not found: {USER_PROFILE_FILE}")
+            return None
+
     data = request.json
-    print(data)
-    username = data.get('username')
-    #email = data.get('email')
+    if not data:
+        return jsonify({"body": "Fill all attributes"}), 205
+
+    username = data.get('username')  # username or email
     auth_password = data.get('password')
 
-    # Check if any required field is missing
-    if not (username or email) or not auth_password:
+    if not username or not auth_password:
         return jsonify({"body": "Fill all attributes"}), 205
-    else:
-        user_profiles = load_user_profiles()
-        #print(user_profiles)
-        user_found = False
-        #print(user_profiles['users'])
-        for user in user_profiles['users']:
-            print(user)
-            if user['username'] == username or user['email'] == username:
-                print(user['username'])
-                if user['password'] == auth_password:
-                    return jsonify({"body": "Login Successful"}), 200
-                else:
-                    return jsonify({"body": "Invalid Credentials"}), 400
+
+    user_profiles = load_user_profiles()
+    if user_profiles is None:
+        return jsonify({"body": "Server Busy"}), 400
+
+    for user in user_profiles.get('users', []):
+        if user['username'] == username or user['email'] == username:
+            if user['password'] == auth_password:
+                return jsonify({"body": "Login Successful"}), 200
             else:
-                print(user['email'])
-                print(' != ')
-                print(username)
+                return jsonify({"body": "Invalid Credentials"}), 400
 
     return jsonify({"body": "UserName or Email Doesn't Exist, please Register"}), 400
-
-            
-            
-            
-
