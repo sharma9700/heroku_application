@@ -5,7 +5,7 @@ import bcrypt
 
 register_blueprint = Blueprint('register', __name__)
 
-USER_PROFILE_FILE = '/home/ec2-user/devops_session/python_cicd/heroku_application/flask_deployment/database/userinfo.json'
+USER_PROFILE_FILE = '/app/database/userinfo.json'
 
 @register_blueprint.route('/register', methods=['POST'])
 def signup():
