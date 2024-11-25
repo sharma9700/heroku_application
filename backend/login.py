@@ -28,6 +28,7 @@ def login():
 
     username = data.get('username')  # username or email
     auth_password = data.get('password')
+    print(auth_password)
 
     if not username or not auth_password:
         return jsonify({"body": "Fill all attributes"}), 205
