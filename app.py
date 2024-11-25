@@ -7,7 +7,7 @@ from backend.login import login_blueprint
 # Create Flask app
 app = Flask(__name__)
 
-@app.route("/home")
+@app.route("/")
 def home():
 	return "<h1>Hello World</h1>"
 
