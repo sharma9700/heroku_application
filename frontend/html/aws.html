@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS DevOps Integration</title>
+    <link rel="stylesheet" href="/app/frontend/css/aws_stylesheet.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AWS DevOps Integration</h1>
+        </header>
+
+        <section class="content">
+            <h2>Welcome to the AWS DevOps Integrated Web Page</h2>
+            <p>This page simulates AWS DevOps tasks like interacting with backend systems.</p>
+
+            <div class="aws-section">
+                <h3>AWS DevOps Task Status</h3>
+                <p id="status">Loading...</p>
+            </div>
+            
+            <button id="devops-task" class="btn">Trigger AWS DevOps Task</button>
+        </section>
+
+        <footer>
+            <button id="logout-btn" class="btn">Logout</button>
+        </footer>
+    </div>
+
+    <script>
+        // Simulate a DevOps task with an AWS-like API call
+        document.getElementById('devops-task').addEventListener('click', function() {
+            // This is where you would normally interact with AWS services
+            document.getElementById('status').textContent = 'DevOps task triggered successfully!';
+        });
+
+        // Logout function
+        document.getElementById('logout-btn').addEventListener('click', function() {
+            // Simulate user logout and redirect to the home page
+            window.location.href = "app/frontend/html/login.html"; // Replace with actual home page URL
+        });
+    </script>
+</body>
+</html>

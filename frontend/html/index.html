@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Register</title>
+    <link rel="stylesheet" href="app/frontend/css/stylesheet.css">
+</head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src ="/app/frontend/js/register.js"> </script>
+	<script src = "/app/frontend/js/login.js"> </script>
+
+<body>
+    <div class="container">
+		<div id="overlay" class="overlay">
+            <div class="spinner"></div>
+        </div>
+        <div class="form-container">
+            <div class="form-box" id="login-box">
+                <h2>Login</h2>
+                <form action="/login" id = "login-form">
+                    <div class="input-group">
+						<input type="text" name="username" id="user" placeholder="Username or Email" required>
+					</div>
+					<div class="input-group">
+						<input type="password" name="password" id="password" placeholder="Password" required>
+					</div>
+					<button type="submit" class="btn">Login</button>
+					<p>Don't have an account? <a id="show-register">Register here</a></p>
+                </form>
+            </div>
+
+            <div class="form-box" id="register-box">
+                <h2>Register</h2>
+                <form action="/register" id = "register-form">
+                    <div class="input-group">
+                        <input type="text" id = "username" name="username" placeholder="User Name*" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="email" id = "email" name="email" placeholder="youremail@email.com*" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" id = "pswd" name="password" placeholder="Password*" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" id = "ppswd" name="confirm_password" placeholder="Confirm Password*" required>
+                    </div>
+					<div class="input-group">
+                        <input type="text" id = "name" name="full_name" placeholder="Full Name">
+                    </div>
+					<div class="input-group">
+                        <input type="text" id ="phno" name="phone_number" placeholder="Enter you Phone Number">
+                    </div>
+					<div class="input-group">
+						<input type="date" name="dob" id="dobInput" placeholder="Date of Birth"/>
+					</div>
+
+					<script>
+						window.onload = function() {
+							const dobInput = document.getElementById("dobInput");
+
+							// Get the current date
+							const currentDate = new Date();
+
+							// Set the max date as the current date to restrict future dates
+							dobInput.max = currentDate.toISOString().split("T")[0];
+
+							// Optionally, you can set a placeholder text
+							dobInput.placeholder = "Select your date of birth";
+						}
+					</script>
+                    <button type="submit" class="btn">Register</button>
+                    <p>Already have an account? <a id="show-login">Login here</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('show-register').addEventListener('click', function() {
+            document.getElementById('login-box').style.display = 'none';
+            document.getElementById('register-box').style.display = 'block';
+        });
+
+        document.getElementById('show-login').addEventListener('click', function() {
+            document.getElementById('register-box').style.display = 'none';
+            document.getElementById('login-box').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
