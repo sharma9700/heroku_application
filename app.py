@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 @app.route("/", methods=['GET'])
 def home():
-	return render_template("app/frontend/index.html")
+	return render_template("app/frontend/html/index.html")
 
 # Configure CORS
 CORS(app, supports_credentials=True)
