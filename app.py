@@ -1,5 +1,5 @@
 # app.py
-from flask import Flask
+from flask import Flask, render_template
 from flask_cors import CORS
 from backend.register import register_blueprint
 from backend.login import login_blueprint
