@@ -1,11 +1,10 @@
 from flask import Blueprint, request, jsonify
 import json
 import os
-import bcrypt
 
 login_blueprint = Blueprint('login', __name__)
 
-USER_PROFILE_FILE = '/home/ec2-user/devops_session/python_cicd/heroku_application/flask_deployment/database/userinfo.json'
+USER_PROFILE_FILE = '/app/database/userinfo.json'
 
 @login_blueprint.route('/login', methods=['POST'])
 def login():

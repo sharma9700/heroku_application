@@ -1,7 +1,6 @@
 from flask import Blueprint, request, jsonify
 import json
 import os
-import bcrypt
 
 register_blueprint = Blueprint('register', __name__)
 
