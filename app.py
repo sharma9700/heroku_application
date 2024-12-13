@@ -5,11 +5,11 @@ from backend.register import register_blueprint
 from backend.login import login_blueprint
 
 # Create Flask app
-app = Flask(__name__)
+app = Flask(__name__,template_folder="frontend/templates")
 
 @app.route("/", methods=['GET'])
 def home():
-	return render_template("/app/frontend/html/index.html")
+	return render_template("index.html")
 
 # Configure CORS
 CORS(app, supports_credentials=True)
