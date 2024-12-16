@@ -11,7 +11,7 @@ app = Flask(__name__,template_folder="frontend/templates",static_folder="fronten
 def home():
 	return render_template("index.html")
  
-@app.route("/aws", methods=['GET'])
+@app.route("/triggeringnotifications", methods=['GET'])
 def aws_home():
 	return render_template("aws.html")
 
