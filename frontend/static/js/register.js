@@ -75,7 +75,7 @@ $(document).ready(function() {
         };
 		
         try {
-			const response = await fetch('https://login-webpage-309e19837628.herokuapp.com//auth/register', {
+			const response = await fetch('https://login-webpage-309e19837628.herokuapp.com/auth/register', {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json'
