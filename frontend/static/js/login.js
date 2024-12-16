@@ -27,7 +27,7 @@ $(document).ready(function() {
 
             switch (response.status) {
                 case 200:
-                    window.location.href = "{{ url_for('index.html') }}";; // Redirect on success
+                    window.location.href = "{{ url_for('aws.html') }}";; // Redirect on success
                     console.log(data.body || "Login Successful");
                     break;
                 case 400:
