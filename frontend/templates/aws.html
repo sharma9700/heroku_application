@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AWS DevOps Integration</title>
-    <link rel="stylesheet" href="/app/frontend/css/aws_stylesheet.css">
+    <link rel="stylesheet" type="text/css" href= "{{ url_for('static',filename='styles/aws_stylesheet.css') }}">
 </head>
 <body>
     <div class="container">
@@ -39,7 +39,7 @@
         // Logout function
         document.getElementById('logout-btn').addEventListener('click', function() {
             // Simulate user logout and redirect to the home page
-            window.location.href = "app/frontend/html/login.html"; // Replace with actual home page URL
+            window.location.href = "{{ url_for('templates',filename='index.html') }}"; // Replace with actual home page URL
         });
     </script>
 </body>
