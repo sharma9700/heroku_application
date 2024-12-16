@@ -88,7 +88,7 @@ $(document).ready(function() {
                 console.log("Success:", result);
                 alert("Registration successful!");
                 // Clear the form or redirect
-                // window.location.href = "/login";
+                window.location.href = "/login";
             } else {
                 const errorData = await response.json();
                 console.error("Error:", errorData);
