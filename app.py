@@ -5,7 +5,7 @@ from backend.register import register_blueprint
 from backend.login import login_blueprint
 
 # Create Flask app
-app = Flask(__name__,template_folder="frontend/templates")
+app = Flask(__name__,template_folder="frontend/templates",static_folder="frontend/static")
 
 @app.route("/", methods=['GET'])
 def home():
