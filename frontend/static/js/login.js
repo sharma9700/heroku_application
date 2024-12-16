@@ -12,7 +12,7 @@ $(document).ready(function() {
 		document.getElementById('overlay').style.display = 'flex';
         try {
             // Send POST request to the server
-            const response = await fetch('https://flask-webapplication-dc6915be5cfa.herokuapp.com/auth/login', {
+            const response = await fetch('https://login-webpage-309e19837628.herokuapp.com/auth/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
